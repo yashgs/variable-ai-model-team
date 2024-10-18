@@ -1,13 +1,13 @@
 import os
-import google.generativeai as genai  # Google Gemini integration
-import sys  # Used for handling errors
+import google.generativeai as genai  
+import sys  
 
-# Set up your Google Gemini API key
-os.environ['GOOGLE_API_KEY'] = "AIzaSyAnPPyK9rGs529uQ6pRZeiVcZ2a8IOg0HU"  # Replace with your actual API key
-genai.configure(api_key=os.environ['GOOGLE_API_KEY'])  # Configuring the Gemini API
+# Set up Google Gemini API key
+os.environ['GOOGLE_API_KEY'] = "AIzaSyAnPPyK9rGs529uQ6pRZeiVcZ2a8IOg0HU"  
+genai.configure(api_key=os.environ['GOOGLE_API_KEY'])
 
 # Define the Gemini model
-model = genai.GenerativeModel("gemini-1.5-pro")  # Adjust model version as needed
+model = genai.GenerativeModel("gemini-1.5-pro") 
 
 
 # Function to analyze formality, emotion, and deeper stylistic features from a text file
@@ -22,7 +22,6 @@ def analyze_text(filepath):
         print(f"Error opening user text file: {e}")
         sys.exit(1)
 
-    # Prepare the refined analysis prompt for Gemini
     try:
         analysis_prompt = (
             f"Analyze the following text and provide a detailed stylistic analysis, focusing on:\n"
@@ -41,11 +40,4 @@ def analyze_text(filepath):
     except Exception as e:
         print(f"Error accessing Google Gemini: {e}")
         sys.exit(1)
-
-
-# Example usage
-if __name__ == "__main__":
-    filepath = "JoeyValenceLyrics.txt"  # Replace with the path to your text file
-    result = analyze_text(filepath)
-    print(f"Detailed Text Analysis:\n{result}")
 
