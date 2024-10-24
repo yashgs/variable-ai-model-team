@@ -1,4 +1,5 @@
 # This file is responsible for analyzing the text to find: Pace, Mood, Tone, and Voice
+# Written by Ian Schultz (discord: doctor_schultz)
 
 import os
 import google.generativeai as genai # this will be done with Gemini
